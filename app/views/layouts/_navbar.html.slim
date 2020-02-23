@@ -5,4 +5,6 @@
   / Log out to root path
   - if user_signed_in?
     .right.menu
+      span.item
+        i.user.secret.icon
       = link_to "Logout", destroy_user_session_path, method: :delete, class: 'ui item active'
