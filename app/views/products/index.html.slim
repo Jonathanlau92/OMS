@@ -1,2 +1,7 @@
-.ui.container
-	.ui.huge.header Hello
+.ui.inverted.vertical.masthead.center.aligned.segment
+  .ui.text.container
+    h1.ui.inverted.header Order Management System
+    .lower-text
+      h4 Check out our product and click the button below to order.
+      .order-new
+        = link_to 'Order now <i class="right arrow icon"></i>'.html_safe, new_order_path, class: 'ui large primary button'
