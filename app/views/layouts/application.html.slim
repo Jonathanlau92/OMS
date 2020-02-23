@@ -10,5 +10,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     = render 'layouts/navbar'
-    = render 'layouts/messages'
+    / = render 'layouts/messages'
+    - flash.each do |key, value|
+      div class=("#{flash_class(key)} closable") 
+        i.close.icon
+        = value
     = yield

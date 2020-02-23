@@ -5,3 +5,5 @@
       h4 Check out our product and click the button below to order.
       .order-new
         = link_to 'Order now <i class="right arrow icon"></i>'.html_safe, new_order_path, class: 'ui large primary button'
+= link_to 'New product', new_product_path, class: 'ui primary button' if user_signed_in?
+
