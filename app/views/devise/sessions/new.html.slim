@@ -1,17 +1,19 @@
-h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.ui.middle.aligned.center.aligned.grid
+  .column
+    h2.ui.teal.image.header 
+      | Log-in to your account for admin usage
+      .ui.large.form
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .ui.stacked.segment
+            .field
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address...'
+            .field
+              = f.password_field :password, autocomplete: "current-password", placeholder: 'Password...'
+            - if devise_mapping.rememberable?
+              .field.ui.checkbox
+                = f.check_box :remember_me
+                = f.label :remember_me
+            .actions
+              = f.submit "Log in", class: 'ui fluid large teal submit button'
+        .ui.message
+          = render "devise/shared/links"

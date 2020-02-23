@@ -1,0 +1,26 @@
+.ui.grey.huge.stackable.pointing.inverted.menu
+  a.item
+    | Home
+  a.item
+    | Messages
+  a.item
+    | Friends
+  / Log out to root path
+  - if user_signed_in?
+    .right.menu
+      = link_to "Logout", destroy_user_session_path, method: :delete, class: 'ui item active'
+
+/ .ui.secondary.menu
+/   a.active.item
+/     | Home
+/   a.item
+/     | Messages
+/   a.item
+/     | Friends
+/   .right.menu
+/     .item
+/       .ui.icon.input
+/         input placeholder="Search..." type="text" /
+/         i.search.link.icon
+/     a.ui.item
+/       | Logout
