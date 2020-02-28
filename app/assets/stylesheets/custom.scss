@@ -27,12 +27,22 @@
     text-align: left;
  }
 
- .text-double{
+.text-double{
     font-size: 20px;
- }
+}
 
- // Flash message for semantic ui
- .message.closable {
-   margin-left: 20%;
-   margin-right: 20%;
-  }
+// Flash message for semantic ui
+.message.closable {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+//Margin bottom
+.marg-b{
+  margin-bottom: 10% !important;
+}
+
+// Make card height equal
+.min-h {
+  min-height: 0;
+}

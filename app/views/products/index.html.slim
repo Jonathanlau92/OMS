@@ -1,9 +1,33 @@
-.ui.inverted.vertical.masthead.center.aligned.segment
+.ui.inverted.vertical.masthead.center.aligned.segment.marg-b
   .ui.text.container
     h1.ui.inverted.header Order Management System
     .lower-text
       h4 Check out our product and click the button below to order.
       .order-new
         = link_to 'Order now <i class="right arrow icon"></i>'.html_safe, new_order_path, class: 'ui large primary button'
+.ui.cards.three.column.grid.container.stackable
+  - @products.each do |prod|
+    .card.fluid
+      .image.min-h
+        = image_tag(prod.product_image) if prod.product_image.present?
+      .content.min-h
+        a.header = prod.name
+        div.meta
+          span = prod.description
+        .price
+          | $
+          = prod.price
+/ .ui.three.column.grid.container.stackable
+  - @products.each do |product|
+    .column
+      .ui.card.fluid
+        .image.min-h
+          = image_tag(product.product_image) if product.product_image.present?
+        .content.min-h
+          a.header = product.name
+          div.meta
+            span = product.description
+          .price
+            = product.price
 = link_to 'New product', new_product_path, class: 'ui primary button' if user_signed_in?
 
