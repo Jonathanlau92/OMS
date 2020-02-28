@@ -1,10 +1,10 @@
 .ui.black.huge.stackable.pointing.inverted.menu
   = link_to "Home", root_path, class: 'item'
-  = link_to "Products", products_path, class: 'item'
+  = link_to("Products", new_product_path, class: 'item') if user_signed_in?
   = link_to "FAQ", '#', class: 'item'
   / Log out to root path
   - if user_signed_in?
     .right.menu
       span.item
         i.user.secret.icon
-      = link_to "Logout", destroy_user_session_path, method: :delete, class: 'ui item active'
+      = link_to "Logout", destroy_user_session_path, method: :delete, class: 'ui item'

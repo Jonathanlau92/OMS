@@ -8,7 +8,7 @@
 .ui.cards.three.column.grid.container.stackable
   - @products.each do |prod|
     .card.fluid
-      .image.min-h
+      .image
         = image_tag(prod.product_image) if prod.product_image.present?
       .content.min-h
         a.header = prod.name
@@ -17,17 +17,3 @@
         .price
           | $
           = prod.price
-/ .ui.three.column.grid.container.stackable
-  - @products.each do |product|
-    .column
-      .ui.card.fluid
-        .image.min-h
-          = image_tag(product.product_image) if product.product_image.present?
-        .content.min-h
-          a.header = product.name
-          div.meta
-            span = product.description
-          .price
-            = product.price
-= link_to 'New product', new_product_path, class: 'ui primary button' if user_signed_in?
-
