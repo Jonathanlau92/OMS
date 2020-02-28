@@ -1,0 +1,18 @@
+.ui.container
+  = form_for @order, html: {class: "ui form"}do |f|
+    .field
+      = label_tag :name
+      = text_field_tag :name
+    .field
+      = label_tag :contact_number
+      = number_field_tag :contact_number
+    .field
+      = f.label :location, 'Location: '
+      = f.text_field :location
+    .field
+      = f.label :quantity, 'Quantity: '
+      = f.number_field :quantity
+    / .field
+    /   = f.label :product_image, 'Image'
+    /   = f.file_field :product_image
+    = f.submit 'Submit', class: 'ui button'
