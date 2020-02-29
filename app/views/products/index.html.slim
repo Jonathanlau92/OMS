@@ -7,9 +7,9 @@
         = link_to 'Order now <i class="right arrow icon"></i>'.html_safe, new_order_path, class: 'ui large primary button'
 .ui.cards.three.column.grid.container.stackable
   - @products.each do |prod|
-    .card.fluid
+    .card
       .image
-        = image_tag(prod.product_image) if prod.product_image.present?
+        = image_tag(prod.product_image, class: 'card-image') if prod.product_image.present?
       .content.min-h
         a.header = prod.name
         div.meta

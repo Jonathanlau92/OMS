@@ -41,3 +41,13 @@
 .marg-b{
   margin-bottom: 10% !important;
 }
+
+img.card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  // max-width:350px;
+  min-height: 250px;
+  max-height: 250px;
+}
+
