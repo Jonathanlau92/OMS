@@ -5,7 +5,7 @@
       h4 Check out our product and click the button below to order.
       .order-new
         = link_to 'Order now <i class="right arrow icon"></i>'.html_safe, new_order_path, class: 'ui large primary button'
-.ui.cards.three.column.grid.container.stackable
+.ui.cards.three.column.container.stackable.grid
   - @products.each do |prod|
     .card
       .image
