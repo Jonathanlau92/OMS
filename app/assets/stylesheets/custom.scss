@@ -37,9 +37,12 @@
   margin-right: 20%;
 }
 
-//Margin bottom
+//Margin 
 .marg-b{
   margin-bottom: 10% !important;
+}
+.marg-t{
+  margin-top: 10px !important;
 }
 
 // Card-image same height
@@ -62,6 +65,15 @@ img.card-image {
 .pushable{
   margin: 0 !important;
 }
+
+//Dashboard css
+.image-dashboard{
+  width: 150px;
+  height: auto;
+  min-height: 100px;
+  max-height: 150px;
+}
+
 .border-radius-0{
   border-radius: 0 !important;
 }

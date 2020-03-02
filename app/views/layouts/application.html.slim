@@ -12,8 +12,5 @@ html
   body
     = render 'layouts/navbar'
     / = render 'layouts/messages'
-    - flash.each do |key, value|
-      div class=("#{flash_class(key)} closable") 
-        i.close.icon
-        = value
+    
     / = yield

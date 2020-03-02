@@ -14,5 +14,5 @@
       = f.number_field :stock_count
     .field
       = f.label :product_image, 'Image'
-      = f.file_field :product_image
+      = f.file_field :product_image, disabled: true
     = f.submit 'Submit', class: 'ui blue button'
