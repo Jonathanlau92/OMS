@@ -1,18 +1,25 @@
-.ui.container.marg-t
+.ui.container.marg-t.marg-b
+  h2.ui.center.aligned.icon.header
+    i.clipboard.icon.circular
+    | Products Dashboard
   table.ui.celled.table
     thead
       tr
         th.one.wide No.
+        th.two.wide Image
         th.six.wide Product
         th.one.wide Edit
         th.one.wide Delete
     tbody
       - @products.each_with_index do |p, index|
         tr
+          td = index + 1
+          td = image_tag p.product_image, class: 'image-dashboard'
           td 
-            / = image_tag p.product_image
-            = index + 1
-          td = p.name
-          td = link_to 'Edit', edit_product_path(p.id), class: 'ui small positive button' 
+            = p.name
+            br
+            span.ui.italic = p.description
+          td 
+            = link_to 'Edit', edit_product_path(p.id), class: 'ui small positive button'
           td = link_to 'Delete', product_path(p.id), method: :delete, class: 'ui small negative button'
           
