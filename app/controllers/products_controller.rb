@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :authenticate_user!, only: :dashboard
   def index
     @products = Product.all
   end
@@ -17,6 +17,10 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def dashboard
+    @products = Product.all
   end
 
   private
