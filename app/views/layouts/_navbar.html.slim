@@ -1,7 +1,7 @@
 .ui.grid.navbar-grid
   .computer.only.row
     .column
-      .ui.black.huge.inverted.menu
+      .ui.black.huge.inverted.menu.border-radius-0
         = link_to "Home", root_path, class: 'item'
         - if user_signed_in?
           = link_to "Products", new_product_path, class: 'item'
@@ -17,7 +17,7 @@
 
   .tablet.mobile.only.row
     .column
-      .ui.black.huge.inverted.menu
+      .ui.black.huge.inverted.menu.border-radius-0
         a#mobile_item.item
           i.bars.icon
 .ui.pushable
