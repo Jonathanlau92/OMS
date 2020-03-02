@@ -19,6 +19,10 @@
             = p.name
             br
             span.ui.italic = p.description
+            br
+            = "Price: #{p.price}"
+            br
+            = "Stock: #{p.stock_count}"
           td 
             = link_to 'Edit', edit_product_path(p.id), class: 'ui small positive button'
           td = link_to 'Delete', product_path(p.id), method: :delete,  data: {confirm: "Are you sure you want to delete #{p.name}?"}, class: 'ui small negative button'
