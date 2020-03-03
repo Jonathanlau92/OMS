@@ -1,18 +1,22 @@
-.ui.container
+.ui.container.marg-t
   = form_for @order, html: {class: "ui form"}do |f|
     .field
-      = label_tag :name
-      = text_field_tag :name
+      = label_tag 'Name'
+      = text_field_tag 'name'
     .field
-      = label_tag :contact_number
-      = number_field_tag :contact_number
+      = label_tag 'Contact No.'
+      = text_field_tag 'contact_number'
     .field
-      = f.label :location, 'Location: '
+      = f.label :location, 'Meet-Up Location '
       = f.text_field :location
     .field
-      = f.label :quantity, 'Quantity: '
-      = f.number_field :quantity
-    / .field
-    /   = f.label :product_image, 'Image'
-    /   = f.file_field :product_image
-    = f.submit 'Submit', class: 'ui button'
+      = f.label :payment_date, 'Payment Date '
+      = f.date_field :payment_date
+    .field
+      = f.label :quantity, 'Quantity '
+      = f.number_field :quantity, step: 1
+    .field
+      = f.label :payment_method, 'Payment by '
+      = f.select :payment_method, options_for_select([['Cash',
+ 'cash'],['Paynow','paynow']]), include_blank: true
+    = f.submit 'Submit', class: 'ui blue button'
