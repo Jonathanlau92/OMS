@@ -26,9 +26,9 @@
     - if user_signed_in?
       = link_to("Products", new_product_path, class: 'item')
       = link_to "Dashboard", dashboard_path , class: 'item'
+      = link_to "Logout", destroy_user_session_path, method: :delete, class: 'ui item'
     - else
       = link_to "FAQ", '#', class: 'item'
-    = link_to "Logout", destroy_user_session_path, method: :delete, class: 'ui item'
   .pusher
     #content
       - flash.each do |key, value|
