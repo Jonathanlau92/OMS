@@ -18,5 +18,5 @@
     .field
       = f.label :payment_method, 'Payment by '
       = f.select :payment_method, options_for_select([['Cash',
- 'cash'],['Paynow','paynow']]), include_blank: true
+ 'cash'],['Paynow','paynow']]),{ include_blank: true }, { class: "ui fluid search dropdown" }
     = f.submit 'Submit', class: 'ui blue button'
