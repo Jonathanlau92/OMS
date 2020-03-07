@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_142401) do
+ActiveRecord::Schema.define(version: 2020_03_07_044623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_02_26_142401) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.string "image_url"
+    t.bigint "box_id"
+    t.index ["box_id"], name: "index_products_on_box_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -79,5 +81,6 @@ ActiveRecord::Schema.define(version: 2020_02_26_142401) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "boxes", "orders"
+  add_foreign_key "products", "boxes"
   add_foreign_key "products", "users"
 end
