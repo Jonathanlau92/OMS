@@ -1,0 +1,9 @@
+.nested-fields
+  .inline.fields
+    .field
+      = f.label :product_id, 'Product'
+      = f.select :product_id, Product.all.collect {|x| [x.name, x.id]}, {include_blank: true}, {class: 'ui fluid search dropdown'}
+    .field
+      = f.label :quantity, 'Quantity'
+      = f.number_field :quantity
+    = link_to_remove_association "X", f, class: 'ui tiny red button'

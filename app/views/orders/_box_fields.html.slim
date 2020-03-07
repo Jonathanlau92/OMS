@@ -1,9 +1,9 @@
-.nested-fields
-  .field
-    = f.hidden_field :order_id
-  #products
-    = f.fields_for :products do |product|
-      = render 'product_fields', g: product
-    .links
-      = link_to_add_association 'Add product', f, :products, class: 'ui tiny green button'
-  = link_to_remove_association "Remove box", f, class: 'ui tiny red button'
+.ui.segment
+  .nested-fields
+    #line_items
+      = f.fields_for :line_items do |line_item|
+        = render 'line_item_fields', f: line_item
+      .links
+        = link_to_add_association 'Add product', f, :line_items, class: 'ui right floated tiny green button'
+    = link_to_remove_association "Remove box", f, class: 'ui tiny red button'
+  .ui.hidden.divider
