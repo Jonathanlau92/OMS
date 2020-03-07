@@ -1,22 +1,40 @@
 .ui.container.marg-t
+  h1.huge Order information
   = form_for @order, html: {class: "ui form"}do |f|
-    .field
-      = label_tag 'Name'
-      = text_field_tag 'name'
-    .field
-      = label_tag 'Contact No.'
-      = text_field_tag 'contact_number'
-    .field
-      = f.label :location, 'Meet-Up Location '
-      = f.text_field :location
-    .field
-      = f.label :payment_date, 'Payment Date '
-      = f.date_field :payment_date
-    .field
-      = f.label :quantity, 'Quantity '
-      = f.number_field :quantity, step: 1
-    .field
-      = f.label :payment_method, 'Payment by '
-      = f.select :payment_method, options_for_select([['Cash',
- 'cash'],['Paynow','paynow']]),{ include_blank: true }, { class: "ui fluid search dropdown" }
-    = f.submit 'Submit', class: 'ui blue button'
+    .ui.segments
+      .huge.ui.segment Your details:
+      .ui.segments
+        .ui.segment
+          .field
+            = label_tag 'Name'
+            = text_field_tag 'name'
+        .ui.segment
+          .field
+            = label_tag 'Contact No.'
+            = text_field_tag 'contact_number'
+    .ui.segments
+      .huge.ui.segment Your preferences:
+      .ui.segments
+        .ui.segment
+          .field
+            = f.label :payment_date, 'Payment Date '
+            = f.date_field :payment_date
+        .ui.segment
+          .field
+            = f.label :location, 'Meet-Up Location '
+            = f.text_field :location
+        .ui.segment
+          .field
+            = f.label :payment_method, 'Payment by '
+            = f.select :payment_method, options_for_select([['Cash',
+      'cash'],['Paynow','paynow']]),{ include_blank: true }, { class: "ui fluid search dropdown" }
+    .ui.segments
+      .huge.ui.segment Products:
+      .ui.segments
+        .ui.segment
+          #boxes
+            = f.fields_for :boxes do |box|
+              = render 'box_fields', f: box
+            .links
+              = link_to_add_association 'Add box', f, :boxes, class: "ui tiny green button"
+    = f.submit 'Submit', data: { confirm: 'Once submitted, no changes. Proceed?' }, class: 'ui blue button'

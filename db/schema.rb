@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_142401) do
+ActiveRecord::Schema.define(version: 2020_03_07_085430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,18 @@ ActiveRecord::Schema.define(version: 2020_02_26_142401) do
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "box_number"
     t.index ["order_id"], name: "index_boxes_on_order_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "box_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["box_id"], name: "index_line_items_on_box_id"
+    t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -62,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_02_26_142401) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.string "image_url"
+    t.bigint "box_id"
+    t.index ["box_id"], name: "index_products_on_box_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -79,5 +92,8 @@ ActiveRecord::Schema.define(version: 2020_02_26_142401) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "boxes", "orders"
+  add_foreign_key "line_items", "boxes"
+  add_foreign_key "line_items", "products"
+  add_foreign_key "products", "boxes"
   add_foreign_key "products", "users"
 end
