@@ -20,3 +20,4 @@ import JQuery from 'jquery';
 window.$ = window.jQuery = JQuery;
 
 require("./flash_message")
+require("src/cocoon")
