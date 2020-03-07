@@ -37,4 +37,4 @@
               = render 'box_fields', f: box
             .links
               = link_to_add_association 'Add box', f, :boxes, class: "ui tiny green button"
-    = f.submit 'Submit', class: 'ui blue button'
+    = f.submit 'Submit', data: { confirm: 'Once submitted, no changes. Proceed?' }, class: 'ui blue button'
