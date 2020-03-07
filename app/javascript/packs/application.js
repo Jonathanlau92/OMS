@@ -21,3 +21,4 @@ window.$ = window.jQuery = JQuery;
 
 require("./flash_message")
 require("src/cocoon")
+require("./nested_form_validation")
