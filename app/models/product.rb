@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :user
-  has_many :orders, through: :boxes
+  belongs_to :boxes
 
   has_one_attached :product_image
 end

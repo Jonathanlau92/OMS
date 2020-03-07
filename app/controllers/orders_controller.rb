@@ -18,6 +18,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:location, :payment_date, :quantity, :payment_method, :buyer_details)
+    params.require(:order).permit(:location, :payment_date, :quantity, :payment_method, :buyer_details, boxes_attributes: [:id, :order_id, :product_id , :_destroy])
   end
 end

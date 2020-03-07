@@ -6,6 +6,12 @@
     .field
       = label_tag 'Contact No.'
       = text_field_tag 'contact_number'
+    h3 Products
+    #products
+      = f.fields_for :products do |product|
+        = render 'product_fields', f: product
+      .links
+        = link_to_add_association 'Add product', f, :products
     .field
       = f.label :location, 'Meet-Up Location '
       = f.text_field :location
